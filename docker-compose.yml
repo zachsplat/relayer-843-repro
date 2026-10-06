@@ -1,0 +1,49 @@
+services:
+  anvil:
+    image: ghcr.io/foundry-rs/foundry:latest
+    container_name: repro843-anvil
+    entrypoint: ["anvil"]
+    command: ["--host", "0.0.0.0", "--port", "8545", "--chain-id", "31337", "--block-time", "2", "--base-fee", "100000000", "--gas-limit", "30000000"]
+    ports:
+      - "127.0.0.1:18745:8545"
+  redis:
+    image: redis:bookworm
+    container_name: repro843-redis
+  receiver:
+    image: python:3.12-alpine
+    container_name: repro843-receiver
+    command: ["python", "/receiver.py", "/receiver.log"]
+    volumes:
+      - ./receiver.py:/receiver.py:ro
+      - ./logs/receiver.log:/receiver.log
+  proxy:
+    image: python:3.12-alpine
+    container_name: repro843-proxy
+    command: ["sh", "-c", "pip install -q rlp && python -u /proxy843.py"]
+    environment:
+      UPSTREAM: http://anvil:8545
+      STRICT: "1"
+      PROXY_LOG: /logs/proxy.log
+    volumes:
+      - ./proxy843.py:/proxy843.py:ro
+      - ./logs:/logs
+    ports:
+      - "127.0.0.1:18746:8546"
+    depends_on: [anvil]
+  relayer:
+    image: openzeppelin/openzeppelin-relayer:v1.8.0
+    container_name: repro843-relayer
+    depends_on: [redis, proxy]
+    environment:
+      REDIS_URL: redis://redis:6379
+      API_KEY: repro843-api-key-0123456789abcdef
+      WEBHOOK_SIGNING_KEY: repro843-webhook-signing-key-0123456789abcdef
+      KEYSTORE_PASSPHRASE: "Repro808Pass!"
+      IN_DOCKER: "true"
+      LOG_LEVEL: debug
+      RPC_BLOCK_PRIVATE_IPS: "false"
+    ports:
+      - "127.0.0.1:18781:8080"
+    volumes:
+      - ./config:/app/config:ro
+      - ./logs:/app/logs

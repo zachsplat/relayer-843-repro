@@ -1,0 +1,3 @@
+   1857 stuck in Sent, queuing resubmit job with repricing
+    215 no nonce gaps detected
+     57 max attempts reached, failing job
