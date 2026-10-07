@@ -2,6 +2,8 @@
 
 A `nonce too high` jam whose drift region is fully occupied by `Sent` records, so the 1.7.0 recovery paths never fire and the drift only grows: https://github.com/OpenZeppelin/openzeppelin-relayer/issues/843
 
+Write-up: https://nonceworks.com/notes/relayer-nonce-too-high-jam-843.html
+
 This runs the unmodified `openzeppelin/openzeppelin-relayer:v1.8.0` image against anvil through `proxy843.py`, which does two things a strict-nonce rollup and a flaky provider would do: it rejects any raw transaction whose nonce is above the sender's pending nonce with a JSON-RPC error `nonce too high`, and it returns HTTP 503 to `eth_sendRawTransaction` during a window the driver opens through `POST /control`. One provider, no failover. The driver submits transfers at a fixed rate throughout and samples the drift (relayer's next nonce minus on-chain nonce) every 30 s.
 
 ## What it shows (2026-10-06)
