@@ -1,0 +1,15 @@
+# counts in the relayer log (pr844-r1)
+service_version                  1
+max attempts reached             57
+no nonce gaps detected           223
+gaps_filled=0                    223
+cannot rewind                    223
+rewound nonce counter            0
+reclaiming nonce slots           0
+nonce gaps confirmed below tx    0
+nonce too high                   3956
+HTTP error 503                   400
+
+# webhook statuses received
+{'sent': 360, 'submitted': 20, 'confirmed': 300}
+failed reasons: {}

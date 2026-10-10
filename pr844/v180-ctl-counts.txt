@@ -1,0 +1,15 @@
+# counts in the relayer log (v180-ctl)
+service_version                  1
+max attempts reached             54
+no nonce gaps detected           245
+gaps_filled=0                    245
+cannot rewind                    0
+rewound nonce counter            0
+reclaiming nonce slots           0
+nonce gaps confirmed below tx    0
+nonce too high                   3284
+HTTP error 503                   383
+
+# webhook statuses received
+{'sent': 360, 'submitted': 20, 'confirmed': 360}
+failed reasons: {}
