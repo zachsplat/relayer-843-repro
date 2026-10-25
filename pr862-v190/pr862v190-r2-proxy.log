@@ -1,0 +1,9 @@
+10:11:15 proxy843 up: upstream http://anvil:8545, strict nonce on, no outage scheduled
+10:12:21 control: eth_sendRawTransaction will get HTTP 503 for the next 60.0 s
+10:13:22 strict nonce: rejected nonce 50 (pending 20); rejections so far 1
+10:13:23 strict nonce: rejected nonce 50 (pending 20); rejections so far 2
+10:13:24 strict nonce: rejected nonce 51 (pending 20); rejections so far 5
+10:13:26 strict nonce: rejected nonce 52 (pending 24); rejections so far 10
+10:13:28 anvil send error: transaction already imported
+10:13:29 anvil send error: transaction already imported
+10:13:30 anvil send error: nonce too low

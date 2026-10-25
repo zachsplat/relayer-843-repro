@@ -1,0 +1,24 @@
+diff --git a/src/domain/transaction/evm/evm_transaction.rs b/src/domain/transaction/evm/evm_transaction.rs
+index 45141123..bfe0233b 100644
+--- a/src/domain/transaction/evm/evm_transaction.rs
++++ b/src/domain/transaction/evm/evm_transaction.rs
+@@ -1768,6 +1768,7 @@ mod tests {
+             features: Some(vec!["eip1559".to_string()]),
+             symbol: Some("ETH".to_string()),
+             gas_price_cache: None,
++            status_check: None,
+         };
+         NetworkRepoModel {
+             id: "evm:testnet".to_string(),
+diff --git a/src/domain/transaction/evm/status.rs b/src/domain/transaction/evm/status.rs
+index 6991b3fb..33d42f53 100644
+--- a/src/domain/transaction/evm/status.rs
++++ b/src/domain/transaction/evm/status.rs
+@@ -1800,6 +1800,7 @@ mod tests {
+             features: Some(vec!["eip1559".to_string()]),
+             symbol: Some("ETH".to_string()),
+             gas_price_cache: None,
++            status_check: None,
+         };
+         NetworkRepoModel {
+             id: "evm:arbitrum-one".to_string(),

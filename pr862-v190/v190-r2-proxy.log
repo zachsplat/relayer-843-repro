@@ -1,0 +1,11 @@
+09:54:18 proxy843 up: upstream http://anvil:8545, strict nonce on, no outage scheduled
+09:55:23 control: eth_sendRawTransaction will get HTTP 503 for the next 60.0 s
+09:56:24 strict nonce: rejected nonce 50 (pending 20); rejections so far 1
+09:56:24 strict nonce: rejected nonce 36 (pending 20); rejections so far 2
+09:56:26 strict nonce: rejected nonce 51 (pending 20); rejections so far 5
+09:56:28 strict nonce: rejected nonce 38 (pending 20); rejections so far 10
+09:56:35 strict nonce: rejected nonce 56 (pending 24); rejections so far 25
+09:56:48 strict nonce: rejected nonce 42 (pending 30); rejections so far 50
+09:57:12 strict nonce: rejected nonce 60 (pending 43); rejections so far 100
+09:58:02 strict nonce: rejected nonce 85 (pending 67); rejections so far 200
+09:59:41 strict nonce: rejected nonce 123 (pending 116); rejections so far 400

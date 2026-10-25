@@ -1,0 +1,22 @@
+# counts in the relayer log
+service_version                                                                  1
+max attempts reached                                                             60
+no nonce gaps detected                                                           258
+gaps_filled=0                                                                    0
+cannot rewind                                                                    0
+rewound nonce counter                                                            0
+reclaiming nonce slots                                                           0
+nonce gaps confirmed below tx                                                    0
+nonce too high                                                                   4252
+HTTP error 503                                                                   420
+drain chain advanced: enqueueing submit for next nonce                           0
+retrying in-process to ride the sequencer revive window                          0
+stuck Sent tx is queued behind the chain head on Arbitrum; skipping resubmit     0
+chain link: failed to enqueue submit job                                         0
+head gate:                                                                       0
+NOOP                                                                             0
+noop                                                                             0
+
+# webhook statuses received
+{'sent': 360, 'submitted': 20, 'confirmed': 360}
+failed reasons: {}
